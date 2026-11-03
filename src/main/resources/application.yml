@@ -1,17 +1,13 @@
 server.port: 8080
 
 spring:
-  datasource:
-    url: "jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"
-  jpa:
-    defer-datasource-initialization: true
   security:
     oauth2:
       client:
         registration:
           google:
-            client-id: "436706068289-mmeibdvi7dnpov7jkqsrmbv3skkbtjrd.apps.googleusercontent.com"
-            client-secret: "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"
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
             scope:
               - email
