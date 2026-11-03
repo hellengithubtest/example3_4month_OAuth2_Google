@@ -18,7 +18,7 @@ http://localhost:8080/login/oauth2/code/google
 ```bash
 export GOOGLE_CLIENT_ID='your-client-id'
 export GOOGLE_CLIENT_SECRET='your-client-secret'
-mvn spring-boot:run
+./gradlew bootRun
 ```
 
 Без обеих переменных приложение не запустится. Client secret нельзя
@@ -33,3 +33,13 @@ mvn spring-boot:run
 4. Google возвращает одноразовый authorization code на callback URI.
 5. Spring Security обменивает code на access token по server-to-server каналу.
 6. После успешного входа открывается `/profile` с именем и email.
+
+## Сборка
+
+Проект использует Java 21 и Gradle Wrapper, поэтому отдельно устанавливать
+Gradle не нужно.
+
+```bash
+./gradlew test
+./gradlew bootJar
+```
